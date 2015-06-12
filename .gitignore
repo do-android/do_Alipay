@@ -7,3 +7,4 @@ proguard/
 *.classpath
 /doExt_do_Alipay/do_build.xml
 /doExt_do_Alipay/libs/docore.jar
+/doExt_do_Alipay/do_Alipay.zip
