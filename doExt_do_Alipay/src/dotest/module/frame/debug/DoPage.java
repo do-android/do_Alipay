@@ -111,4 +111,15 @@ public class DoPage implements DoIPage {
 
 	}
 
+	@Override
+	public boolean isFullScreen() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setFullScreen(boolean arg0) {
+		
+	}
+
 }
