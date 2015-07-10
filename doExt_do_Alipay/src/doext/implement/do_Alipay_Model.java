@@ -162,6 +162,7 @@ public class do_Alipay_Model extends DoSingletonModule implements do_Alipay_IMet
 				JSONObject _result = new JSONObject();
 				_result.put("code", payResult.getResultStatus());
 				_result.put("msg", payResult.getResult() + payResult.getMemo());
+				_invokeResult.setResultNode(_result);
 			} catch (Exception e) {
 				DoServiceContainer.getLogEngine().writeError("do_Alipay_Model pay \n\t", e);
 			} finally {
