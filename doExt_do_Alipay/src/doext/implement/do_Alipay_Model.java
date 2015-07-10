@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 
 import com.alipay.sdk.app.PayTask;
 
@@ -83,40 +84,40 @@ public class do_Alipay_Model extends DoSingletonModule implements do_Alipay_IMet
 	@Override
 	public void pay(JSONObject _dictParas, DoIScriptEngine _scriptEngine, String _callbackFuncName) throws Exception {
 
-		String _rsaPrivate = DoJsonHelper.getString(_dictParas, "rsaPrivate", null);// 商户私钥
-		if (_rsaPrivate == null)
+		String _rsaPrivate = DoJsonHelper.getString(_dictParas, "rsaPrivate", "");// 商户私钥
+		if (TextUtils.isEmpty(_rsaPrivate))
 			throw new Exception("rsaPrivate 不能为空");
-		
-		String _rsaPublic = DoJsonHelper.getString(_dictParas, "rsaPublic", null);// 支付宝公钥
-		if (_rsaPublic == null)
+
+		String _rsaPublic = DoJsonHelper.getString(_dictParas, "rsaPublic", "");// 支付宝公钥
+		if (TextUtils.isEmpty(_rsaPublic))
 			throw new Exception("rsaPublic 不能为空");
 
-		String _partner = DoJsonHelper.getString(_dictParas, "partner", null);// 合作者身份ID,签约的支付宝账号对应的支付宝唯一用户号。以2088开头的16位纯数字组成
-		if (_partner == null)
+		String _partner = DoJsonHelper.getString(_dictParas, "partner", "");// 合作者身份ID,签约的支付宝账号对应的支付宝唯一用户号。以2088开头的16位纯数字组成
+		if (TextUtils.isEmpty(_partner))
 			throw new Exception("partner 不能为空");
 
-		String _notifyUrl = DoJsonHelper.getString(_dictParas, "notifyUrl", null);// 服务器异步通知页面路径,支付宝服务器把处理结果返回该url，长度不能超过200个字符
-		if (_notifyUrl == null)
+		String _notifyUrl = DoJsonHelper.getString(_dictParas, "notifyUrl", "");// 服务器异步通知页面路径,支付宝服务器把处理结果返回该url，长度不能超过200个字符
+		if (TextUtils.isEmpty(_notifyUrl))
 			throw new Exception("notifyUrl 不能为空");
 
-		String _tradeNo = DoJsonHelper.getString(_dictParas, "tradeNo", null);// 支付宝合作商户网站唯一订单号,长度不能超过64个字符
-		if (_tradeNo == null)
+		String _tradeNo = DoJsonHelper.getString(_dictParas, "tradeNo", "");// 支付宝合作商户网站唯一订单号,长度不能超过64个字符
+		if (TextUtils.isEmpty(_tradeNo))
 			throw new Exception("tradeNo 不能为空");
 
-		String _subject = DoJsonHelper.getString(_dictParas, "subject", null);// 商品的标题/交易标题/订单标题/订单关键字等,长度不能超过128个字符
-		if (_subject == null)
+		String _subject = DoJsonHelper.getString(_dictParas, "subject", "");// 商品的标题/交易标题/订单标题/订单关键字等,长度不能超过128个字符
+		if (TextUtils.isEmpty(_subject))
 			throw new Exception("subject 不能为空");
 
-		String _sellerId = DoJsonHelper.getString(_dictParas, "sellerId", null);// 卖家支付宝账号（邮箱或手机号码格式）或其对应的支付宝唯一用户号,长度不能超过16个字符
-		if (_sellerId == null)
+		String _sellerId = DoJsonHelper.getString(_dictParas, "sellerId", "");// 卖家支付宝账号（邮箱或手机号码格式）或其对应的支付宝唯一用户号,长度不能超过16个字符
+		if (TextUtils.isEmpty(_sellerId))
 			throw new Exception("sellerId 不能为空");
 
-		String _totalFee = DoJsonHelper.getString(_dictParas, "totalFee", null);// 该笔订单的资金总额，单位为RMB-Yuan。取值范围为[0.01，100000000.00]，精确到小数点后两位
-		if (_totalFee == null)
+		String _totalFee = DoJsonHelper.getString(_dictParas, "totalFee", "");// 该笔订单的资金总额，单位为RMB-Yuan。取值范围为[0.01，100000000.00]，精确到小数点后两位
+		if (TextUtils.isEmpty(_totalFee))
 			throw new Exception("totalFee 不能为空");
 
-		String _body = DoJsonHelper.getString(_dictParas, "body", null);// 对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body,长度不能超过512个字符
-		if (_body == null)
+		String _body = DoJsonHelper.getString(_dictParas, "body", "");// 对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body,长度不能超过512个字符
+		if (TextUtils.isEmpty(_body))
 			throw new Exception("body 不能为空");
 
 		final Activity _activity = DoServiceContainer.getPageViewFactory().getAppContext();
