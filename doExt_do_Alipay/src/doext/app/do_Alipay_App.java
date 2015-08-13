@@ -29,4 +29,9 @@ public class do_Alipay_App implements DoIAppDelegate {
 	public String getModuleTypeID() {
 		return "do_Alipay";
 	}
+
+	@Override
+	public String getTypeID() {
+		return getModuleTypeID();
+	}
 }
